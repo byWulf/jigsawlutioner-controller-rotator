@@ -1,0 +1,16 @@
+{
+  "name": "jigsawlutioner-controller-rotator",
+  "version": "1.0.0",
+  "description": "Rotator station, that can rotate the pieces to any given degree",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byWulf/jigsawlutioner-controller-rotator.git"
+  },
+  "author": "byWulf",
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "jigsawlutioner-controller": "^2.0"
+  }
+}
