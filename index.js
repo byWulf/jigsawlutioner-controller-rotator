@@ -4,7 +4,7 @@ import BrickPi from 'brickpi3';
 const controller = new Controller(3000);
 
 controller.createEndpoint('reset', async (parameters, resolve) => {
-    const motor = await controller.getMotor(parameters.pushMotor);
+    const motor = await controller.getMotor(parameters, 'pushMotor');
 
     for (let i = 0; i < 3; i++) {
         await BrickPi.utils.resetMotorEncoder(motor.BP, motor.port, BrickPi.utils.RESET_MOTOR_LIMIT.BACKWARD_LIMIT, -50, 10, 10000, 30);
@@ -24,8 +24,8 @@ controller.createEndpoint('rotate', async (parameters, resolve) => {
     if (degree < 0) degree -= extraRotate;
     if (degree > 0) degree += extraRotate;
 
-    const pushMotor = await controller.getMotor(parameters.pushMotor);
-    const rotateMotor = await controller.getMotor(parameters.rotateMotor);
+    const pushMotor = await controller.getMotor(parameters, 'pushMotor');
+    const rotateMotor = await controller.getMotor(parameters, 'rotateMotor');
 
     await pushMotor.setPosition(270);
     await rotateMotor.setPosition(degree * rotateConversion);
